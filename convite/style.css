@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: pink; /* rosa claro sólido */
+  font-family: 'Dancing Script', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.container {
+  background-color: pink; /* fundo transparente para não cobrir o rosa do body */
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+}
+
+.cover {
+  display: block;
+  margin: 0 auto 20px auto; /* centraliza horizontalmente e adiciona espaço abaixo */
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+h1 {
+  font-size: 36px;
+  color: pink;  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 28px;
+  color: pink;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  color: pink;
+  margin: 5px 0;
+}
+
+h2 span {
+  color: pink;
+}
