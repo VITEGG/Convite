@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite de Aniversário</title>
+
+  <!-- Fonte cursiva moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Estilo do carrossel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #880e4f;
+      margin: 5px 0;
+    }
+
+    h2 span {
+      color: #ad1457;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Carrossel de Imagens -->
+    <div class="carousel">
+      <img src="foto1.jpg" class="active" alt="foto 1" />
+      <img src="foto2.jpg" alt="foto 2" />
+      <img src="foto3.jpg" alt="foto 3" />
+      <img src="foto4.jpg" alt="foto 4" />
+    </div>
+
+    <h1>Você está convidado!</h1>
+    <h2 id="nome">Aniversário Surpresa da <span>Mariana</span></h2>
+    <p id="data">Data: 24 de Maio de 2025</p>
+    <p id="hora">Horário: 19 horas</p>
+    <p id="local">Local: Rua Flor de Romã, 175, Jardim Alvorada</p>
+    <p id="Observação">
+      Olá, queridos amigos e familiares! 💖<br><br>
+      Estamos preparando uma surpresa muito especial para comemorar o aniversário da Mariana, que é muito importante para todos nós! 🥰✨<br><br>
+      Gostaríamos de contar com a sua ajuda para organizar um churrasco delicioso, com muito carinho, risadas e alegria! Sua presença já será um presente, mas se puder contribuir com alguma coisinha (500g de carne, bebida), será incrível!<br><br>
+      Tudo será feito com muito amor para surpreender e celebrar esse momento juntos! 🎂🎈<br><br>
+      Se puder participar e ajudar, nos avise por aqui — e não conte nada à aniversariante! 🤫💕<br><br>
+      Muito obrigado desde já pelo carinho e por fazer parte dessa comemoração cheia de afeto! ❤️<br><br>
+      Com gratidão.
+    </p>
+  </div>
+
+  <!-- Script do carrossel -->
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 3000); // troca a cada 3 segundos
+  </script>
+</body>
+</html>
