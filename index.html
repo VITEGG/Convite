@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Convite de Aniversário</title>
-
-  <!-- Fonte cursiva moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <title>Mudança de planos, mas a festa continua! ✨🎉</title>
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: pink;
-      font-family: 'Arial';
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,14 +19,14 @@
     }
 
     .container {
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.8);
       padding: 30px;
       border-radius: 20px;
       max-width: 600px;
       width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    /* Estilo do carrossel */
     .carousel {
       position: relative;
       width: 100%;
@@ -75,6 +72,37 @@
     h2 span {
       color: black;
     }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 80%;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e0559e;
+    }
   </style>
 </head>
 <body>
@@ -82,26 +110,40 @@
 
     <!-- Carrossel de Imagens -->
     <div class="carousel">
-      <img src="foto1.jpg" class="active" alt="Foto 1" />
-      <img src="foto2.jpg" alt="Foto 2" />
-      <img src="foto3.jpg" alt="Foto 3" />
-      <img src="foto4.jpg" alt="Foto 4"/>
+      <img src="imagem/foto1.jpg" class="active" alt="foto 1" />
+      <img src="imagem/foto2.jpg" />
+      <img src="imagem/foto3.jpg" />
+      <img src="imagem/foto4.jpg" />
     </div>
 
     <h1>Você está convidado!</h1>
-    <h2 id="nome">Aniversário Surpresa da <span>Mariana</span></h2>
+    <h2 id="nome">Aniversário da <span>Mariana</span></h2>
     <p id="data">Data: 24 de Maio de 2025</p>
     <p id="hora">Horário: 19 horas</p>
     <p id="local">Local: Rua Flor de Romã, 175, Jardim Alvorada</p>
     <p id="Observação">
-      Olá, queridos amigos e familiares! 💖<br><br>
-      Estamos preparando uma surpresa muito especial para comemorar o aniversário da Mariana, que é muito importante para todos nós! 🥰✨<br><br>
-      Gostaríamos de contar com a sua ajuda para organizar um churrasco delicioso, com muito carinho, risadas e alegria! Sua presença já será um presente, mas se puder contribuir com alguma coisinha (500g de carne, bebida), será incrível!<br><br>
-      Tudo será feito com muito amor para surpreender e celebrar esse momento juntos! 🎂🎈<br><br>
-      Se puder participar e ajudar, nos avise por aqui — e não conte nada à aniversariante! 🤫💕<br><br>
-      Muito obrigado desde já pelo carinho e por fazer parte dessa comemoração cheia de afeto! ❤️<br><br>
-      Com gratidão.
+      Oi, queridos amigos! 💛<br><br>
+      Temos uma pequena atualização sobre a nossa festa surpresa: a aniversariante acabou descobrindo tudo! 😅🎈<br>
+      Mas a boa notícia é que ela está super animada e isso só deixou tudo ainda mais especial!<br><br>
+      A única coisa que muda é o local do evento — por questões práticas, vamos celebrar em um novo espaço que em breve enviaremos direitinho pra vocês.<br>
+      O dia e horário continuam os mesmos, e a energia boa também! 🌟<br><br>
+      Vai ser uma comemoração cheia de carinho, risadas e bons momentos entre amigos. Contamos com vocês para fazer esse dia ainda mais inesquecível! 🥂💃<br><br>
+      Em breve, mais detalhes!💕
     </p>
+
+    <!-- Botão para formulário externo do Google Forms -->
+    <h3>Confirme sua presença via formulário</h3>
+    <p>Ou envie diretamente aqui abaixo 👇</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPKrQkePmdGvsF2lE8G9_vubRR4byPtGq6md0aeGXRUX9CcQ/viewform?usp=dialog" target="_blank">
+      <button style="background-color: black;">Ir para o Google Forms</button>
+    </a>
+
+    <!-- Formulário de Confirmação via email -->
+    <form onsubmit="enviarConfirmacao(event)">
+      <input type="text" id="nomeCompleto" placeholder="Nome e Sobrenome" required />
+      <button type="submit">Enviar Confirmação por E-mail</button>
+    </form>
+
   </div>
 
   <!-- Script do carrossel -->
@@ -113,7 +155,19 @@
       images[current].classList.remove('active');
       current = (current + 1) % images.length;
       images[current].classList.add('active');
-    }, 3000); // troca a cada 3 segundos
+    }, 3000);
+
+    // Função para abrir cliente de e-mail com dados preenchidos
+    function enviarConfirmacao(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nomeCompleto').value.trim();
+      const email = 'pokemongoats7@gmail.com'; // Altere para seu email
+      const assunto = encodeURIComponent('Confirmação de Presença - Festa da Mariana');
+      const corpo = encodeURIComponent(`Olá! Estou confirmando minha presença na festa da Mariana.\n\nNome: ${nome}`);
+      const mailtoLink = `mailto:${email}?subject=${assunto}&body=${corpo}`;
+
+      window.location.href = mailtoLink;
+    }
   </script>
 </body>
 </html>
